@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <h2>Checkout</h2>
+  <form onsubmit="placeOrder(event)">
+    <label>Name:</label><br/>
+    <input type="text" required><br/><br/>
+    <label>Address:</label><br/>
+    <textarea required></textarea><br/><br/>
+    <label>Payment Method:</label><br/>
+    <select required>
+      <option value="cod">Cash on Delivery</option>
+      <option value="card">Credit/Debit Card</option>
+    </select><br/><br/>
+    <button type="submit">Place Order</button>
+  </form>
+  <script>
+    function placeOrder(e) {
+      e.preventDefault();
+      alert("Order placed successfully!");
+      localStorage.removeItem("cart");
+      window.location.href = "index.html";
+    }
+  </script>
+</body>
+</html>
