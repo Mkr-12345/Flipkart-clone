@@ -1,4 +1,3 @@
-<!-- Home Page -->
 <!DOCTYPE html>
 <html lang='en'>
 <head>
@@ -8,7 +7,21 @@
   <link rel='stylesheet' href='css/style.css'>
 </head>
 <body>
-  <!-- Content goes here -->
+  <header style="background-color: #2874f0; color: white; padding: 20px; text-align: center;">
+    <h1>Welcome to Flipkart Clone</h1>
+    <nav>
+      <a href="index.html" style="color: white; margin: 0 10px;">Home</a>
+      <a href="products.html" style="color: white; margin: 0 10px;">Products</a>
+      <a href="cart.html" style="color: white; margin: 0 10px;">Cart</a>
+      <a href="login.html" style="color: white; margin: 0 10px;">Login</a>
+      <a href="signup.html" style="color: white; margin: 0 10px;">Signup</a>
+    </nav>
+  </header>
+  <main style="padding: 20px;">
+    <h2>Featured Products</h2>
+    <div id='productContainer' class='product-grid'></div>
+  </main>
+  <script src='js/products.js'></script>
+  <script src='js/main.js'></script>
 </body>
-<script src='js/main.js'></script>
 </html>
