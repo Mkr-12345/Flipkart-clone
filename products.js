@@ -1,3 +1,4 @@
+// products.js
 const products = [
   { id: 1, name: 'Smartphone X1', price: 499, image: 'images/product1.png', description: 'A high-end smartphone with a large display and powerful processor.' },
   { id: 2, name: 'Headphones Z2', price: 99, image: 'images/product2.png', description: 'Noise-cancelling headphones for an immersive audio experience.' },
