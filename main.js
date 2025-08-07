@@ -1,14 +1,16 @@
+// main.js
 document.addEventListener('DOMContentLoaded', () => {
   const productContainer = document.getElementById('productContainer');
   const searchInput = document.getElementById('searchInput');
 
   function renderProducts(productList) {
+    if (!productContainer) return;
     productContainer.innerHTML = '';
     productList.forEach(product => {
       const card = document.createElement('div');
       card.className = 'product-card';
       card.innerHTML = `
-        <img src="${product.image}" alt="${product.name}" style="width:150px;height:150px;" />
+        <img src="${product.image}" alt="${product.name}" style="width:150px;height:150px;" onerror="this.onerror=null;this.src='https://via.placeholder.com/150';">
         <h3><a href="product.html?id=${product.id}">${product.name}</a></h3>
         <p>$${product.price}</p>
         <button onclick="addToCart(${product.id})">Add to Cart</button>
@@ -17,7 +19,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  if (typeof products !== 'undefined' && productContainer) {
+  // Ensure products are available before rendering
+  if (typeof products !== 'undefined') {
     renderProducts(products);
   }
 
