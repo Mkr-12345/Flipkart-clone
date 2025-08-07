@@ -1,4 +1,3 @@
-
 document.addEventListener('DOMContentLoaded', () => {
   const productContainer = document.getElementById('productContainer');
   const searchInput = document.getElementById('searchInput');
@@ -10,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
       card.className = 'product-card';
       card.innerHTML = `
         <img src="${product.image}" alt="${product.name}" style="width:150px;height:150px;" />
-        <h3>${product.name}</h3>
+        <h3><a href="product.html?id=${product.id}">${product.name}</a></h3>
         <p>$${product.price}</p>
         <button onclick="addToCart(${product.id})">Add to Cart</button>
       `;
@@ -18,13 +17,17 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  renderProducts(products);
+  if (typeof products !== 'undefined' && productContainer) {
+    renderProducts(products);
+  }
 
-  searchInput.addEventListener('input', () => {
-    const query = searchInput.value.toLowerCase();
-    const filtered = products.filter(p => p.name.toLowerCase().includes(query));
-    renderProducts(filtered);
-  });
+  if (searchInput) {
+    searchInput.addEventListener('input', () => {
+      const query = searchInput.value.toLowerCase();
+      const filtered = products.filter(p => p.name.toLowerCase().includes(query));
+      renderProducts(filtered);
+    });
+  }
 });
 
 function addToCart(id) {
